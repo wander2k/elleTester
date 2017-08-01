@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+
+	<appender name="file" class="org.apache.log4j.FileAppender">
+		<param name="File" value="./check.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+
+	<logger name="log4j.sample.console">
+		<appender-ref ref="stdout" />
+	</logger>
+
+	<logger name="log4j.sample.file">
+		<appender-ref ref="file">
+			<param name="threshold" value="info" />
+			<param name="Target" value="System.out" />
+			<layout class="org.apache.log4j.PatternLayout">
+				<param name="ConversionPattern" value="%m%n" />
+			</layout>
+		</appender-ref>
+	</logger>
+
+	<root>
+	</root>
+</log4j:configuration>
